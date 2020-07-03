@@ -3,14 +3,21 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
   state = {
-    toggle: true,
+    input: 'Hello'
   }
-  toggle = () => {
-    this.setState({
-      toggle: !this.state.toggle
-    })
+
+  updateInput = (event) => {
+    this.setState(
+      { input : event.target.value.trim()}
+    )
   }
+
+  submit = () => {
+   //console.log(this.text.value)
+  }
+
   render(){
     return (
       <div className="App">
@@ -27,9 +34,10 @@ class App extends Component {
           >
             Learn React
           </a>
-          {this.state.toggle && <p>this should show and hide</p>}
-          
-          <button onClick={this.toggle}>show / hide</button>
+          <h3>{this.state.input}</h3>
+          <input type='text' onChange={this.updateInput} value={this.state.input}></input>
+          <input type='text' ref={(input)=> this.text = input}></input>
+          <button onClick={this.submit}>show value</button>
         </header>
       </div>
     );
