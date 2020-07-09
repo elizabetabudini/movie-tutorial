@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+
 const Movie = ({movie, desc}) => (
     <div>
-        <h3>{movie.title}</h3>
-        <p>{desc}</p>
+        <img src={movie.urlPoster} alt={movie.title}></img>
     </div>
+    
 );
 export default Movie;
 

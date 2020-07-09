@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Movie from './Movie'
+import Movie from './Movie';
+import {
+  BrowserRouter as Router, 
+  Route
+} from 'react-router-dom';
 
 class App extends Component {
   state = {
@@ -22,18 +26,25 @@ class App extends Component {
   }
   render(){
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-        </header>
-        {this.state.movies.map((movie, i)=> (
-            <Movie key={i} movie={movie} desc={movie.simplePlot}/>
-          )
-        )}
-      </div>
+      <Router>
+        <div className="App">
+          <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+          </header>
+          <Route path='/test' component={Test} />
+          {this.state.movies.map((movie, i)=> (
+              <Movie key={i} movie={movie} desc={movie.simplePlot}/>
+            )
+          )}
+        </div>
+      </Router>
     );
   }
   
 }
 
 export default App;
+
+const Test = () => (
+  <h1>test</h1>
+)
