@@ -10,7 +10,7 @@ export default class Movie extends Component {
         desc: PropTypes.string
     }
     static defaultProps = {
-        desc: 'Description not available'
+        desc: 'Plot not available'
     }
     render () {
         return (
