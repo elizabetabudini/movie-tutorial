@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { Link } from 'react-router-dom';
 
 const Movie = ({movie, desc}) => (
     <div>
-        <img src={movie.urlPoster} alt={movie.title}></img>
+        <Link to={`/${movie.idIMDB}`}>
+            <img src={movie.urlPoster} alt={movie.title}></img>
+        </Link>
     </div>
     
 );
