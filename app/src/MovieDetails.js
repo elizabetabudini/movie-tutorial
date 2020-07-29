@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Poster } from './Movie';
 import styled from 'styled-components';
+import Overdrive from 'react-overdrive';
 
 class MoviesDetails extends Component {
   state = {
@@ -24,7 +25,9 @@ class MoviesDetails extends Component {
     return (
         <MovieWrapper back={movie.urlPoster}>
             <MovieInfo>
-            <Poster src={movie.urlPoster} alt={movie.title}/>
+            <Overdrive id={movie.idIMDB}>
+                <Poster src={movie.urlPoster} alt={movie.title}/>
+            </Overdrive>
                 <div> 
                     <h1>{movie.title}</h1>
                     <h3>{movie.year}</h3>
