@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo192.png';
 import './App.css';
 import MoviesList from './MoviesList';
+import MovieDetails from './MovieDetails';
 import {
   BrowserRouter as Router, 
   Route,
@@ -19,13 +20,10 @@ const App = () => (
       </header>
       <Switch>
         <Route exact path='/' component={MoviesList} />
-        <Route path='/:idIMDB' component={Test} />
+        <Route path='/:idIMDB' component={MovieDetails} />
       </Switch>
     </div>
   </Router>
 );
 
 export default App;
-const Test = ({match}) => (
-  <h1>{match.params.idIMDB}</h1>
-)
