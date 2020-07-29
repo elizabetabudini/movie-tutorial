@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Movie from './Movie';
+import styled from 'styled-components'
 
 class MoviesList extends Component {
   state = {
@@ -20,12 +21,12 @@ class MoviesList extends Component {
   }
   render(){
     return (
-        <div>
+        <MovieGrid>
         {this.state.movies.map((movie, i)=> (
                     <Movie key={i} movie={movie} desc={movie.simplePlot}/>
                     )
                 )}
-        </div>
+        </MovieGrid>
           
     );
   }
@@ -33,3 +34,9 @@ class MoviesList extends Component {
 }
 
 export default MoviesList;
+const MovieGrid = styled.div`
+   display: grid;
+   padding: 1rem;
+   grid-template-columns: repeat(6, 1fr);
+   grid-row-gap: 1rem;
+`;

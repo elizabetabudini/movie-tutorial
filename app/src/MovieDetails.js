@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Poster } from './Movie';
+import styled from 'styled-components';
 
 class MoviesDetails extends Component {
   state = {
@@ -20,12 +22,16 @@ class MoviesDetails extends Component {
   render(){
       const { movie } = this.state;
     return (
-        <div>
-        <img src={movie.urlPoster} alt={movie.title}></img>
-        <h1>{movie.title}</h1>
-        <h3>{movie.year}</h3>
-        <p>{movie.simplePlot}</p>
-        </div>
+        <MovieWrapper back={movie.urlPoster}>
+            <MovieInfo>
+            <Poster src={movie.urlPoster} alt={movie.title}/>
+                <div> 
+                    <h1>{movie.title}</h1>
+                    <h3>{movie.year}</h3>
+                    <p>{movie.simplePlot}</p>
+                </div>
+            </MovieInfo>
+        </MovieWrapper>
           
     );
   }
@@ -33,3 +39,22 @@ class MoviesDetails extends Component {
 }
 
 export default MoviesDetails;
+
+const MovieWrapper = styled.div`
+   position:relative;
+   padding-top: 10vh;
+`;
+const MovieInfo = styled.div`
+   background: white;
+   text-align: left;
+   padding: 2rem 10%;
+   display: flex;
+   > div{
+       margin-left: 20px;
+   }
+   img {
+       position: relative;
+       top: -5rem;
+   }
+`;
+
